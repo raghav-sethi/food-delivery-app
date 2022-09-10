@@ -11,14 +11,36 @@ const Backdrop = (props) => {
 const ModalOverlay = (props) => {
   return (
     <Card className={styles.modal}>
-      <header className={styles.header}>
+      <header className={`${styles.header} d-flex justify-content-between`}>
         <h2>{props.title}</h2>
+        <Button onClick={props.onConfirmError}>
+          <i className="fa-solid fa-xmark"></i>
+        </Button>
       </header>
       <div className={styles.content}>
-        <p>{props.message}</p>
+        <div>
+          <button
+            style={{ width: "100%" }}
+            className="btn btn-outline-dark mt-3 mb-2 text-center"
+          >
+            Continue with Gmail
+          </button>
+        </div>
+        <div>
+          <button
+            style={{ width: "100%" }}
+            className="btn btn-outline-dark mb-4 text-center"
+          >
+            Continue with Facebook
+          </button>
+        </div>
       </div>
-      <footer className={styles.actions}>
-        <Button onClick={props.onConfirmError}>Okay</Button>
+      <hr />
+      <footer
+        style={{ backgroundColor: " #212529" }}
+        className={styles.actions}
+      >
+        <a href="/">{props.footerContent}</a>
       </footer>
     </Card>
   );
